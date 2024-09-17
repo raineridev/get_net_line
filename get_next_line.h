@@ -4,6 +4,7 @@
 
 // Define
 
+# define BUFFER_SIZE 5
 
 // Functions: 
 
