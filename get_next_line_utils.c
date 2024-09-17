@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mraineri <mraineri@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mraineri <mraineri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 11:58:45 by mraineri          #+#    #+#             */
-/*   Updated: 2024/09/12 12:44:07 by mraineri         ###   ########.fr       */
+/*   Updated: 2024/09/17 21:46:14 by mraineri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		i;
 	char	*str;
 
-	if(!s1 || *s2)
+	if(!s1 || !s2)
 		return (NULL);
 	str = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
 	i = 0;
