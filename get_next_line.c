@@ -6,7 +6,7 @@
 /*   By: mraineri <mraineri@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/18 22:20:11 by mraineri          #+#    #+#             */
-/*   Updated: 2024/09/21 23:25:30 by mraineri         ###   ########.fr       */
+/*   Updated: 2024/09/26 22:43:19 by mraineri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ int main(void)
 {
     int fd = open("TestersFile/text.txt", O_RDONLY);
     printf("%s\n", get_next_line(fd)); // AAAAABBBBB
+    printf("%s", get_next_line(fd)); // AAAAABBBBB
     return (0);
 }
+
