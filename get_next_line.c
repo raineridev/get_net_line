@@ -14,27 +14,24 @@
 
 char *get_next_line(int fd)
 {
-    static char     buffer[BUFFER_SIZE];
+    static char     buffer[BUFFER_SIZE + 1];
     int             bits;
     char            *line;
 
-    if (fd < 0 || BUFFER_SIZE <= 0 || fd > OPEN_MAX)
+    if (fd < 0 || BUFFER_SIZE <= 0 || fd >= OPEN_MAX)
         return (NULL);
-    line = "";
+    line = NULL;
     if(buffer[0] != '\0')
-        line = ft_strjoin(line, buffer);
+        line = ft_strjoin(line, buffer, ft_strlen(line), ft_strlen(buffer));
     while (ft_have_breakline(line) == -1)
     {  
         bits = read(fd, buffer, BUFFER_SIZE);
         buffer[bits] = '\0';
-        if(bits <= 0)
-        {
-            if(bits == 0)
-                return (line);
-            free(line);
-            return (NULL);
-        }
-        line = ft_strjoin(line, buffer);
+        if(bits == 0)
+            return (line);
+        if(bits < 0)
+            return(free(line), NULL);
+        line = ft_strjoin(line, buffer, ft_strlen(line), ft_strlen(buffer));
     }
     return (ft_strcut(line, buffer));
 }
@@ -43,8 +40,8 @@ char *get_next_line(int fd)
 int main(void)
 {
     int fd = open("TestersFile/text.txt", O_RDONLY);
-    printf("%s\n", get_next_line(fd)); // AAAAABBBBB
-    printf("%s", get_next_line(fd)); // AAAAABBBBB
+     char *s = get_next_line(fd); // AAAAABBBBB
+    free(s);
     return (0);
 }
 
