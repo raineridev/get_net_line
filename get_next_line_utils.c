@@ -34,32 +34,27 @@ int ft_strlen(char *str)
 
 	i = 0;
 	if(!str)
-		return (-1);
+		return (0);
 	while(str[i] != '\0')
 		i++;
 	return (i);
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2, size_t len_s1, size_t len_s2)
 {
 	int		i;
 	char	*str;
-	static int f  = 0;
-	
-	if (!s2)
-		return (NULL);
-	if (!s1)
-		return (s2);
-	str = malloc(((ft_strlen(s1) + ft_strlen(s2)) + 1) * sizeof(char));
+	size_t  test = ft_strlen(s1);
+	str = malloc(((len_s1 + len_s2) + 1) * sizeof(char));
 	if(!str)
 		return (NULL);
-	printf("Malloc Here(strjoin) - Number #%d - %p\n", ++f, str);
 	i = 0;
-	while (*s1)
+	while (s1 != NULL && *s1)
 		str[i++] = *s1++;
 	while (*s2)
 		str[i++] = *s2++;
 	str[i] = '\0';
+	free(s1 - test);
 	return (str);
 }
 
@@ -68,12 +63,10 @@ char *ft_strcut(char *line, char *buffer)
 	int		i;
 	int		breakline;
 	char	*string;
-	static int		f;
 	
 	i = 0;
 	breakline = (ft_have_breakline(buffer) + 1);
 	string = malloc((ft_have_breakline(line) + 1) * sizeof(char));
-	printf("Malloc Here(strcut) - Number #%d\n", ++f);
 	if(!string)
 		return (NULL);
 	while(buffer[i])
