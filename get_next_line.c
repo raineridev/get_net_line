@@ -37,11 +37,3 @@ char *get_next_line(int fd)
 }
 
 
-int main(void)
-{
-    int fd = open("TestersFile/text.txt", O_RDONLY);
-     char *s = get_next_line(fd); // AAAAABBBBB
-    free(s);
-    return (0);
-}
-

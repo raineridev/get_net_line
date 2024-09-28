@@ -10,7 +10,7 @@
 
 // Define
 
-# define BUFFER_SIZE 1
+// # define BUFFER_SIZE 10
 # define OPEN_MAX 1024
 
 // Functions: 
@@ -22,7 +22,7 @@ int	    ft_strlen(char *str);
 
 /// Char Retun's
 char    *get_next_line(int fd);
-char	*ft_strjoin(char *s1, char *s2);
+char	*ft_strjoin(char *s1, char *s2, size_t len_s1, size_t len_s2);
 char    *ft_strcut(char *line, char *buffer);
 #endif
 
